@@ -1,3 +1,5 @@
+<%# form_with is a feature of rails %>
+<%# a helper method %>
 <%= form_with model: article do |form| %>
   <div>
     <%= form.label :title %><br>
@@ -14,7 +16,10 @@
       <div><%= message %></div>
     <% end %>
   </div>
-  
+
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %>
   <div>
     <%= form.submit %>
   </div>
